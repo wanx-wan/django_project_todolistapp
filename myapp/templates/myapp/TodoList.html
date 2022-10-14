@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"></link>
+</head>
+<body>
+  {% include "components/header.html" %}
+
+<table class="w-full">
+    <tr class="w-1/2 bg-gray-200">
+        {% if user.is_authenticated %}
+        <th class="p-2 text-center"> </th>
+        {% endif %}
+        <th class="p-2 ">Title</th>
+        <th class="p-2 text-center">Description</th>
+        <th class="p-2 text-center">Deadline</th>
+        <th class="p-2 text-center">Status</th>
+    </tr>
+    {% for list in AllList %}
+    <tr class="">
+        {% if user.is_authenticated %}
+        <td class="p-2 text-center">
+            <a href="/myapp/editList/{{ list.id }}"><i  class="px-1 mx-2 fa fa-edit hover:text-orange-500 hover:scale-110" aria-hidden="true"></i></a>
+            <a href="/myapp/DeleteList/{{ list.id }}"><i  class="px-1 mx-2 fa fa-trash hover:text-red-700 hover:scale-110" aria-hidden="true"></i></a>
+        </td>
+        {% endif %}
+            <td class="p-2 uppercase ">{{ list.title }}</td>
+            <td class="p-2 text-center">{{ list.description }}</td>
+            <td class="p-2 text-center">{{ list.deadline }}</td>
+            <td class="p-2 text-center">{{ list.done }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+  {% include "components/footer.html" %}
+</body>
+</html>
