@@ -7,7 +7,7 @@
 
     django-admin startproject myweb .
 
-# Create New Web Project
+# Create New App
 
     python manage.py startapp myapp
 
