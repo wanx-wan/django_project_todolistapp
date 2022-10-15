@@ -20,7 +20,7 @@
     python manage.py makemigrations
     python manage.py migrate
 
-# createsuperuser
+# Create superuser
 
     python manage.py createsuperuser
     user, password : admin
